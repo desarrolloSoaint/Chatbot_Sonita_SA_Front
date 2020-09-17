@@ -1,0 +1,22 @@
+.container-error-message{
+	font-size: 0.7rem; 
+	color: red; 
+    text-align: center;
+    background-color: white;
+}
+
+.toolbar {
+    color:white;
+	background-color: #004e82;
+	border-radius: 1rem;
+}    
+
+.btnCreate {
+    color:white;
+    background-color: #004e82;
+    margin-top: 1rem;
+}
+
+.col-md-5{
+    margin-top: 1rem;
+}

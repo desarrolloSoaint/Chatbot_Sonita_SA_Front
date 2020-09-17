@@ -1,0 +1,171 @@
+<!-- <mat-card-header class="toolbar"> -->
+    <mat-toolbar class="toolbar">    
+        <mat-card-title>{{titulo}}</mat-card-title>
+        <span class="toolbar-spacer"></span>
+        <mat-icon class="button" title="Cerrar" (click)="closeDialog()">close</mat-icon> 
+    </mat-toolbar>
+<!-- </mat-card-header> -->
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="formGroup" errorMessage="Complete Todos los Campos">
+        <form [formGroup]="formGroup">
+            <ng-template matStepLabel>Crea</ng-template>
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="text" placeholder="Email" [formControl]="email" [(ngModel)]="_user.email" name="email" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="email.hasError('pattern') && !email.hasError('required')">
+                           Ingrese un Email Valido
+                        </mat-error>
+                        <mat-error *ngIf="email.hasError('required')">
+                            Email es <strong>requerido</strong>
+                        </mat-error> 
+                    </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                            <input matInput  placeholder="Contraseña" type="password" formControlName="password" [(ngModel)]="_user.password" name="password" [errorStateMatcher]="matcher">
+                                <mat-error *ngIf="password.hasError('pattern') && !password.hasError('required')">
+                                    Ingrese un Contraseña Valida <br/>
+                                    Minimo 8 Caracteres <br/>
+                                    1 Letra en Mayuscula <br/>
+                                    1 Numero <br/>
+                                    1 Caracter Especial
+                                </mat-error>
+                                <mat-error *ngIf="password.hasError('required')">
+                                    Contraseña es <strong>requerido</strong>
+                                </mat-error> 
+                    </mat-form-field>
+                </div>
+            </div>  
+
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field  look = "fill">         
+                        <mat-select placeholder="Rol" formControlName="roles" [(ngModel)] ="_user.roles" name ="role" multiple [errorStateMatcher]="matcher"> 
+                            <mat-option *ngFor= "let role of roleList" [value]="role.id">
+                            {{role.rolName}}
+                            </mat-option> 
+                        </mat-select> 
+                        <mat-error *ngIf="roles.hasError('required')">
+                            Roles es <strong>requerido</strong>
+                        </mat-error> 
+                </mat-form-field>
+                </div>
+            </div> 
+
+            <div class="row">
+                <div class="col-md-5" style="margin-top: 1rem;">
+                    <button mat-raised-button class="button" matStepperNext  [disabled]="!formGroup.valid" (click)="saveUser()">Siguiente</button>
+                </div>
+            </div>
+        </form> 
+    </mat-step>
+    <mat-step [stepControl]="dataFormGroup" errorMessage="Complete Todos los Campos">
+        <form [formGroup]="dataFormGroup">
+            <ng-template matStepLabel>Registra</ng-template>
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="text" placeholder="Nombres" formControlName="names" [(ngModel)]="user.names" name="names" multiple [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="names.hasError('required')">
+                            Nombres es <strong>requerido</strong>
+                        </mat-error>                       
+                    </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="text" placeholder="Apellidos" formControlName="last_names" [(ngModel)]="user.last_names" name="last_names" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="last_names.hasError('required')">
+                            Apellidos es <strong>requerido</strong>
+                        </mat-error>   
+                    </mat-form-field>
+                </div>
+            </div> 
+
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="text" placeholder="Cédula" formControlName="identification_card" [(ngModel)]="user.identification_card" name="identification_card" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="identification_card.hasError('pattern') && !identification_card.hasError('required')">
+                            Ingrese un Cédula Valido
+                         </mat-error>
+                         <mat-error *ngIf="identification_card.hasError('required')">
+                            Cédula es <strong>requerido</strong>
+                         </mat-error> 
+                    </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                    <mat-form-field look = "fill">              
+                        <mat-select placeholder="Género" formControlName="id_gender" [(ngModel)] ="user.id_gender" name ="id_gender" [errorStateMatcher]="matcher"> 
+                            <mat-option *ngFor= "let genero of generos" [value]="genero.id">
+                                {{genero.name}}
+                            </mat-option> 
+                        </mat-select> 
+                        <mat-error *ngIf="id_gender.hasError('required')">
+                            Género es <strong>requerido</strong>
+                        </mat-error>  
+                    </mat-form-field>
+                </div>
+            </div>  
+
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" placeholder="Fecha de Nacimiento" formControlName="birth_date" [(ngModel)]="user.birth_date" name="birth_date" [errorStateMatcher]="matcher">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="birth_date.hasError('required')">
+                            <strong>MM/DD/YYYY</strong>
+                        </mat-error>  
+                    </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                    <mat-form-field  look = "fill">         
+                            <mat-select placeholder="País" formControlName="id_country" [(ngModel)] ="user.id_country" name ="id_country" [errorStateMatcher]="matcher"> 
+                                <mat-option *ngFor= "let pais of paises" [value]="pais.id">
+                                {{pais.name}}
+                                </mat-option> 
+                            </mat-select> 
+                            <mat-error *ngIf="id_country.hasError('required')">
+                                País es <strong>requerido</strong>
+                            </mat-error> 
+                    </mat-form-field>
+                </div>          
+            </div>  
+
+            <div class="row">
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                            <input matInput type="text" placeholder="Número Móvil" formControlName="mobile_phone" [(ngModel)]="user.mobile_phone" name="mobile_phone" [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="mobile_phone.hasError('pattern')">
+                                Formato Invalido <strong>1234567891234</strong>
+                            </mat-error> 
+                    </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="text" placeholder="Número Lócal" formControlName="local_telephone" [(ngModel)]="user.local_telephone" name="local_telephone" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="local_telephone.hasError('pattern')">
+                            Formato Invalido <strong>1234567891234</strong>
+                        </mat-error> 
+                    </mat-form-field>
+                </div>
+            </div> 
+            
+            <div class="row" style="margin-top: 1rem;">
+                <button  mat-raised-button class="button" matStepperPrevious>Atrás</button>
+                <button  mat-raised-button class="button" matStepperNext [disabled]="!dataFormGroup.valid" (click)="saveData()">Siguiente</button>
+            </div>    
+        </form> 
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Confirma</ng-template>
+        <p>¿Estás Seguro de Crear el Usuario?</p>
+        <div class="row" style="margin-top: 1rem;">
+          <button  mat-raised-button class="button" matStepperPrevious>Atrás</button>
+          <button  mat-raised-button class="button" (click)="create()" [disabled]="!formGroup.valid">Crear</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
+ 

@@ -1,0 +1,77 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="azure" data-background-color="white" >
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-color:   blue"></div>
+    </div>
+    
+<div class="main-panel">
+  <app-navbar></app-navbar>
+ <div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+ <div class="col-md-12">
+  <mat-card>
+      <mat-card-header class="toolbar mat-elevation-z8">
+          <mat-toolbar class="toolbar">  
+            <div class="container">
+              <div class="row">
+                <div class="col-0">
+                  <span class="material-icons" >favorite</span> 
+                </div>
+    
+                <div class="col-5">
+                  <mat-card-title  style="color: rgb(252, 248, 248);">{{titulo}}</mat-card-title>
+                </div>
+              </div>
+            </div>
+             
+              <span class="toolbar-spacer"></span>
+              Nuevo<mat-icon class="button" (click)="openDialog()" class="cursor" title="Crear" >add</mat-icon> 
+          </mat-toolbar>
+      </mat-card-header>
+      <mat-table [dataSource]="dataSource" >
+          <ng-container matColumnDef="Nombre">
+            <mat-header-cell *matHeaderCellDef > Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let staCivil1"> {{staCivil1.name}} </mat-cell>
+          </ng-container>
+          
+          <ng-container matColumnDef="Abreviacion">
+            <mat-header-cell *matHeaderCellDef > Abreviación </mat-header-cell>
+            <mat-cell *matCellDef="let staCivil1"> {{staCivil1.abbreviation}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Modificar">
+              <mat-header-cell *matHeaderCellDef > Modificar </mat-header-cell>
+              <mat-cell *matCellDef="let staCivil1"><mat-icon class="button"  (click)="openDialog1(staCivil1)" class="cursor" title="Modificar">editar</mat-icon> </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Eliminar">
+              <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+              <mat-cell *matCellDef="let staCivil1"><mat-icon class="button"  (click)="Borrar(staCivil1)" class="cursor" title="Eliminar">delete</mat-icon></mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: columnsToDisplay;"> </mat-row>
+      </mat-table>
+      <div class="container">
+        <div class="row">
+          <div class="col-5">
+          </div>
+          <div class="col">
+          <div  *ngIf="stateCivils.length==0" >
+            <div id="contenido">
+              <mat-spinner ></mat-spinner>
+            </div>
+              </div>
+              </div>
+          
+          <div class="col-5">
+          </div>
+        </div>
+      </div>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card>
+  </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+.toolbar{
+	color:white;
+	background-color: #004e82;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+.toolbarEdit{
+	color:white;
+	background-color: #004e82;
+    border-radius: 1rem;
+    align-items: center;
+    width: 90%;
+    margin-left: 1.5rem;
+    margin-top: 2rem;
+}
+.mat-calendar-body-selected {
+	background-color: #004e82;
+}
+.mat-form-field-suffix {
+    margin-right: 20%;
+}
+.mat-select-arrow {
+    margin-right: 4rem;
+}
+.button{
+    cursor: pointer;
+    color: white;
+    background-color:#004e82 ;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.mat-card-header .mat-card-title {
+    margin-bottom: 12px;
+    margin-top: 1.7rem;
+}

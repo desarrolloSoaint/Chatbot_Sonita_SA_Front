@@ -1,0 +1,56 @@
+.mat-dialog-container {
+    display: block;
+    padding: 6px;
+    border-radius: 90px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+}
+.file{
+    width: 104%;
+    margin-left: -2%;
+    border-radius: 0.5rem;
+}
+button{
+    cursor: pointer;
+    color: white;
+    background-color:#004e82 ;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+element
+.style {
+    border-style: dotted;
+    text-decoration: gray;
+    text-decoration-line: initial;
+    text-decoration-style: initial;
+    text-decoration-color: #80808003;
+    color: aliceblue;
+}
+.toolbar{
+	color:white;
+	background-color: #004e82;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mat-calendar-body-selected {
+	background-color: #004e82;
+}
+.color{
+    background-color: #006595!important;
+}
+.mat-icon {
+    margin-left: 21%;
+}
+
+.toolbar-spacer {
+    flex : 2  1 auto;
+}
+.button{
+    cursor: pointer;
+}

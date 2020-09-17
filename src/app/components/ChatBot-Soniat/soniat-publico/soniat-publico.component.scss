@@ -1,0 +1,585 @@
+@import"../../../../assets/scss/core/ThemeSoniat/soniat.scss";
+#container{
+    width: 100vw;
+    height: 100vh;
+    max-height: 100%;
+    position:fixed;
+    top:0;
+    left: 0;
+    display: grid;
+    grid-template-columns: auto 350px 100px;
+    grid-template-rows: auto 400px;
+    grid-template-areas: "head head"
+    "nav  chatarea";
+}
+// .color{
+//   color:#fff!important;
+//   background-color: #006595!important;
+// }
+#chatbotarea{
+    grid-area: chatarea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 405px;
+}
+#chatbot{   
+    width: 90%;
+    height: 95%;
+    border-radius: 15px;
+    box-shadow:0 13px 27px -5px rgba(50,50,93,.25),
+    0 8px 16px -8px rgba(0,0,0,.3),
+    0 -6px 16px -6px rgba(0,0,0,.025);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "headchat"
+    "chatbody"
+    "textinput";
+}
+#chatbothead{
+    grid-area:headchat;
+    // background-color: #006595;
+    border-radius: 15px 15px 0 0;
+    justify-content: space-between;
+    align-items: center;
+    display:flex;
+}
+#chatbothead > p{
+    // color: #fff;
+    font-size: 20px;
+    padding-left: 1rem;  
+    font-family: 'Titillium Web',sans-serif!important;
+}
+.icon_minim {
+    padding-left: 10px;
+    margin-right: 15px;
+    height: 5%;
+    //background-color: #fff;
+    cursor:pointer;
+} 
+#chatbotmessage{
+    grid-area:chatbody;
+    display: grid;
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: auto;
+    resize: none;
+    padding: 1rem;
+}
+#chatbot > footer{
+    grid-area:textinput;
+    border-radius: 0 0 15px 15px;
+    display:grid;
+    align-items: center;
+    font-size: 14px;
+    margin-left: 20px;
+}
+#input{
+    outline: 0;
+    border: 0;
+    //background-color: transparent;
+    width: 80%;
+    cursor:pointer;
+}
+#btn{
+    // color: #006595;
+    // background: transparent;
+    border: 0;
+    cursor:pointer;
+}
+.fa-2x {
+    font-size: 1rem;
+}
+.img_size{
+  height: 40%;
+  margin-top: 75%;
+  margin-left: 80%;
+  border-radius: 100px;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
+}
+.filter{
+  cursor:pointer;
+  text-align: center;
+  border-radius: 1rem;
+  outline: 0;
+  border: 0;
+  width: 70px;
+  right:0px;
+  z-index:1000;
+  padding:8px 12px;   
+  margin-right: -40%;
+}   
+.filter:focus {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+  padding: 5px 5px;
+  width:55%;
+  margin-right:0;
+} 
+.search{
+align-items: flex-end;
+}
+.men{
+  font-size: 13px;
+ // color:#006595;
+}
+@media only screen and (min-device-width: 320px) 
+and (max-device-width: 340px) 
+and (-webkit-min-device-pixel-ratio: 2){
+  #chatbotarea{
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr ;
+    grid-template-areas:"chatarea";
+    width: 100%;
+  }
+  #chatbot{   
+    width: 75%;
+    height: 95%;
+  }
+  .img_size{
+    margin-left: 50%;
+  }  
+  .filter{
+  margin-right: -20%;
+  width: 20%;
+  }
+  .filter:focus {
+    width:45%;   
+  } 
+}
+@media only screen and (min-device-width: 350px) 
+and (max-device-width: 375px) 
+and (-webkit-min-device-pixel-ratio: 2){
+  #chatbotarea{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"chatarea";
+    width: 107%;
+  }
+  #chatbot{   
+      width: 75%;
+      height: 95%;
+  }
+  .img_size{
+    margin-left: 60%;
+  }
+  .filter{
+    margin-right: -30%;
+  }   
+  .filter:focus {
+    width:55%;
+  } 
+}
+@media only screen and (min-device-width: 376px) 
+and (max-device-width: 420px) 
+and (-webkit-min-device-pixel-ratio: 2){
+  chatbotarea{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"chatarea";
+    width: 110%;
+  }
+  .img_size{
+    margin-left: 80%;
+  }
+}
+@media only screen and (min-device-width: 376px) 
+and (max-device-width: 420px) 
+and (-webkit-min-device-pixel-ratio: 2){
+  #chatbotarea{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"chatarea";
+    width: 120%;
+  }
+  .img_size{
+    margin-top: 65%;
+    margin-left: 70%;
+  } 
+}
+@media only screen and (min-device-width: 700px) 
+and (max-device-width: 768px) 
+and (-webkit-min-device-pixel-ratio: 2){
+  #chatbotarea{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:"chatarea";
+  }
+}
+////////////////////THEMES//////////////////////////////
+.theme-yellow {
+  #chatbothead{
+     @extend %yellow1;
+    }
+    .color {
+      @extend %yellow2;
+      @extend %yellow1 ;
+    }
+    #chatbothead > p{
+      @extend %yellow2;
+    }
+    .icon_minim {
+      @extend %yellow6;
+    } 
+    #chatbotmessage{
+      @extend %yellow3;
+    }
+
+    #chatbot > footer{
+     @extend %yellow3;
+    }
+    #btn{
+      @extend %yellow5;
+    }
+    .men{
+    @extend %yellow5;
+  }
+}
+.theme-blue {
+  #chatbothead{
+      @extend %blue1;
+    }
+    .color {
+      @extend %blue2;
+      @extend %blue1 ;
+    }
+    #chatbothead > p{
+      @extend %blue2;
+    }
+    .icon_minim {
+      @extend %blue6;
+    } 
+    #chatbotmessage{
+      @extend %blue3;
+    }
+    #chatbot > footer{
+      @extend %blue3;
+    }
+    #btn{
+      @extend %blue5;
+    }
+    .men{
+    @extend %blue5;
+  }
+}
+.theme-green {
+  #chatbothead{
+      @extend %green1;
+    }
+    .color {
+      @extend %green1 ;
+      @extend %green2;
+
+    }
+    #chatbothead > p{
+      @extend %green2;
+    }
+    .icon_minim {
+      @extend %green6;
+    } 
+    #chatbotmessage{
+      @extend %green3;
+    }
+    #chatbot > footer{
+      @extend %green3;
+    }
+    #btn{
+      @extend %green5;
+    }
+    .men{
+    @extend %green5;
+  }
+}
+.theme-orange {
+  #chatbothead{
+      @extend %orange1;
+    }
+    .color {
+      @extend %orange1 ;
+      @extend %orange2;
+
+    }
+    #chatbothead > p{
+      @extend %orange2;
+    }
+    .icon_minim {
+      @extend %orange6;
+    } 
+    #chatbotmessage{
+      @extend %orange3;
+    }
+    #chatbot > footer{
+      @extend %orange3;
+    }
+    #btn{
+      @extend %orange5;
+    }
+    .men{
+    @extend %orange5;
+  }
+}
+.theme-purple {
+  #chatbothead{
+      @extend %purple1;
+    }
+    .color {
+      @extend %purple1;
+      @extend %purple2;
+
+    }
+    #chatbothead > p{
+      @extend %purple2;
+    }
+    .icon_minim {
+      @extend %purple6;
+    } 
+    #chatbotmessage{
+      @extend %purple3;
+    }
+    #chatbot > footer{
+      @extend %purple3;
+    }
+    #btn{
+      @extend %purple5;
+    }
+    .men{
+    @extend %purple5;
+  }
+}
+.theme-red {
+  #chatbothead{
+      @extend %red1;
+    }
+    .color {
+      @extend %red1 ;
+      @extend %red2;
+
+    }
+    #chatbothead > p{
+      @extend %red2;
+    }
+    .icon_minim {
+      @extend %red6;
+    } 
+    #chatbotmessage{
+      @extend %red3;
+    }
+    #chatbot > footer{
+      @extend %red3;
+    }
+    #btn{
+      @extend %red5;
+    }
+    .men{
+    @extend %red5;
+  }
+}
+.theme-yellowDark {
+  #chatbothead{
+      @extend %yellowDark1;
+    }
+    .color {
+      @extend %yellowDark1 ;
+      @extend %yellowDark2;
+
+    }
+    #chatbothead > p{
+      @extend %yellowDark2;
+    }
+    .icon_minim {
+      @extend %yellowDark6;
+    } 
+    #chatbotmessage{
+      @extend %yellowDark3;
+    }
+    #chatbot > footer{
+      @extend %yellowDark3;
+    }
+    #btn{
+      @extend %yellowDark5;
+    }
+    .men{
+    @extend %yellowDark5  ;
+  }
+  .filter{
+    @extend %yellowDark4;
+  }
+  #input{
+    @extend %yellowDark4;
+  }
+}
+.theme-blueDark {
+  #chatbothead{
+      @extend %blueDark1;
+    }
+    .color {
+      @extend %blueDark1 ;
+      @extend %blueDark2;
+
+    }
+    #chatbothead > p{
+      @extend %blueDark2;
+    }
+    .icon_minim {
+      @extend %blueDark6;
+    } 
+    #chatbotmessage{
+      @extend %blueDark3;
+    }
+    #chatbot > footer{
+      @extend %blueDark3;
+    }
+    #btn{
+      @extend %blueDark5;
+    }
+    .men{
+    @extend %blueDark2;
+  }
+  .filter{
+    @extend %blueDark4;
+  }
+  #input{
+    @extend %blueDark2;
+  }
+}
+.theme-orangeDark {
+  #chatbothead{
+      @extend %orangeDark1;
+    }
+    .color {
+      @extend %orangeDark1 ;
+      @extend %orangeDark2;
+
+    }
+    #chatbothead > p{
+      @extend %orangeDark2;
+    }
+    .icon_minim {
+      @extend %orangeDark6;
+    } 
+    #chatbotmessage{
+      @extend %orangeDark3;
+    }
+    #chatbot > footer{
+      @extend %orangeDark3;
+    }
+    #btn{
+      @extend %orangeDark5;
+    }
+    .men{
+    @extend %orangeDark2;
+  }
+  .filter{
+    @extend %orangeDark4;
+  }
+  #input{
+    @extend %orangeDark2;
+  }
+}
+.theme-greenDark {
+  #chatbothead{
+      @extend %greenDark1;
+    }
+    .color {
+      @extend %greenDark1 ;
+      @extend %greenDark2;
+
+    }
+    #chatbothead > p{
+      @extend %greenDark2;
+    }
+    .icon_minim {
+      @extend %greenDark6;
+    } 
+    #chatbotmessage{
+      @extend %greenDark3;
+    }
+    #chatbot > footer{
+      @extend %greenDark3;
+    }
+    #btn{
+      @extend %greenDark5;
+    }
+    .men{
+    @extend %greenDark2;
+  }
+  .filter{
+    @extend %greenDark4;
+  }
+  #input{
+    @extend %greenDark2;
+  }
+}
+.theme-purpleDark {
+  #chatbothead{
+      @extend %purpleDark1;
+    }
+    .color {
+      @extend %purpleDark1 ;
+      @extend %purpleDark2;
+
+    }
+    #chatbothead > p{
+      @extend %purpleDark2;
+    }
+    .icon_minim {
+      @extend %purpleDark6;
+    } 
+    #chatbotmessage{
+      @extend %purpleDark3;
+    }
+    #chatbot > footer{
+      @extend %purpleDark3;
+    }
+    #btn{
+      @extend %purpleDark5;
+    }
+    .men{
+    @extend %purpleDark2;
+  }
+  .filter{
+    @extend %purpleDark4;
+  }
+  #input{
+    @extend %purpleDark2;
+  }
+}
+.theme-redDark {
+  #chatbothead{
+      @extend %redDark1;
+    }
+    .color {
+      @extend %redDark1 ;
+      @extend %redDark2;
+
+    }
+    #chatbothead > p{
+      @extend %redDark2;
+    }
+    .icon_minim {
+      @extend %redDark6;
+    } 
+    #chatbotmessage{
+      @extend %redDark3;
+    }
+    #chatbot > footer{
+      @extend %redDark3;
+    }
+    #btn{
+      @extend %redDark5;
+    }
+    .men{
+    @extend %redDark2;
+  }
+  .filter{
+    @extend %redDark4;
+  }
+  #input{
+    @extend %redDark2;
+  }
+}

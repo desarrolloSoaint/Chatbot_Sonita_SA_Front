@@ -1,0 +1,19 @@
+<form [formGroup]="myForm">
+    <mat-card class="mat-elevation-z8 file .mat-dialog-container">
+        <mat-toolbar class="toolbar">
+            <mat-card-title style="text-align: center;">Sube una Foto para el Usuario
+                <mat-icon class="button" title="Cerrar" (click)="closeDialog()">close</mat-icon>
+            </mat-card-title>
+        </mat-toolbar>
+        <form class="form-inline mt-4" enctype="multipart/form-data" #archivarForm="ngForm" (ngSubmit)="onSubmit1()">
+            <input type='file' id="file" class="form-control" [(ngModel)]="file" name="file"
+                (change)="fileEvent($event)">
+            <div class="row">
+                <div class="col">
+                    <button type="submit" value="Guardar" class="btn btn-primary mb-2 hola"
+                        [disabled]="!archivarForm.form.valid">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</form>

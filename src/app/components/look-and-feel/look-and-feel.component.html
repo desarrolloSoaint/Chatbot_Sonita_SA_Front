@@ -1,0 +1,70 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span title="Define el color prederteminado del Chat">{{titulo}}</span>
+    <span class="toolbar-spacer"></span>
+
+    <button mat-icon-button title="Modo Claro" [matMenuTriggerFor]="theme" aria-label="Example
+      icon-button with a menu">
+      <mat-icon>brush</mat-icon>
+    </button>
+
+    <button mat-icon-button title="Modo Oscuro" style="color:black;" [matMenuTriggerFor]="themeBlack" aria-label="Example
+      icon-button with a menu">
+      <mat-icon>brush</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-menu #theme="matMenu">
+  <button mat-menu-item (click)="saveColor('theme-blue')">
+    <img src="../../../assets/img/themeBlue.svg" alt="">
+    <span>Tema Azul</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-red')">
+    <img src="../../../assets/img/themeRed.svg" alt="">
+    <span>Tema Rojo</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-yellow')">
+    <img src="../../../assets/img/themeYelow.svg" alt="">
+    <span>Tema Amarillo</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-purple')">
+    <img src="../../../assets/img/themePurple.svg" alt="">
+    <span>Tema Purpura</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-green')">
+    <img src="../../../assets/img/themeGreen.svg" alt="">
+    <span>Tema Verde</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-orange')">
+    <img src="../../../assets/img/themeOrage.svg" alt="">
+    <span>Tema Naranja</span>
+  </button>
+</mat-menu>
+
+<mat-menu #themeBlack="matMenu">
+  <button mat-menu-item (click)="saveColor('theme-blueDark')">
+    <img src="../../../assets/img/themeBlueBlack.svg" alt="">
+    <span>Tema Azul</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-redDark')">
+    <img src="../../../assets/img/themeRedBlack.svg" alt="">
+    <span>Tema Rojo</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-yellowDark')">
+    <img src="../../../assets/img/themeYelowBlack.svg" alt="">
+    <span>Tema Amarillo</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-purpleDark')">
+    <img src="../../../assets/img/themePurpleBlack.svg" alt="">
+    <span>Tema Purpura</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-greenDark')">
+    <img src="../../../assets/img/themeGreenBlack.svg" alt="">
+    <span>Tema Verde</span>
+  </button>
+  <button mat-menu-item (click)="saveColor('theme-orangeDark')">
+    <img src="../../../assets/img/themeOrageBlack.svg" alt="">
+    <span>Tema Naranja</span>
+  </button>
+</mat-menu>

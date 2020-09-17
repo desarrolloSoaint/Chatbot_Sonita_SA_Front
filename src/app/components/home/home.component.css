@@ -1,0 +1,110 @@
+.toolbar-spacer {
+    flex : 2  1 auto;
+    margin-right: 1rem;
+}
+.row{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+mat-toolbar {
+background-color:#006595 ;
+}
+mat-icon{
+    color: white;
+    margin-right: 1rem;
+    
+}
+.cardUsuario {
+    width: 230px;
+    height: 220px;
+    margin-left: 2.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: #ff00cc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.cardPublicos {
+    width: 230px;
+    height: 220px;
+    margin-left: 2.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: #00d2ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+ }
+ .cardPrivado {
+    width: 230px;
+    height: 220px;
+    margin-left: 2.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: #8E2DE2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+ }
+ .cardChatbot {
+    width: 230px;
+    height: 220px;
+    margin-left: 2.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+ }
+.cardUsuarioFrecuente {
+    width: 640px;
+    margin-left: 2.2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.cardRedireccionamiento {
+    width: 350px;
+    margin-left: 2.2rem;
+    margin-top: 1rem;
+    background-color:#006595;
+    height: 230px;
+}
+h1{
+    text-align: center;
+    color: white;
+    font-weight: 300;
+}
+h3{
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+h4{
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    margin-top: 0.3rem;
+    font-size: 14px;
+}
+h5{
+    text-align: center;
+    color: rgb(214, 214, 214);
+    font-weight: 500;
+}
+p{
+    color:white;
+    text-align: center;
+    font-weight: 500;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: 40px;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+    padding: 0px;
+}
+.mat-card-actions, .mat-card-subtitle, .mat-card-content {
+    margin-bottom: 10px;
+}

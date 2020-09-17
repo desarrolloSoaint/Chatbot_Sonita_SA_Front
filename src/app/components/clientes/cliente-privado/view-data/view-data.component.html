@@ -1,0 +1,84 @@
+<mat-toolbar class="toolbar">
+    <mat-card-header>
+        <mat-card-title>{{ title }}</mat-card-title>
+        <span class="toolbar-spacer"></span>
+    </mat-card-header>
+</mat-toolbar>
+
+    <mat-card-content>
+        <div class="container">
+            <form [formGroup]="formGroup">
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width"> 
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" formControlName="email" 
+                                name="email" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-form-field look="fill">
+                            <mat-select placeholder="País" formControlName="id_country" 
+                                name="id_country" disabled>
+                                <mat-option *ngFor="let pais of paises" [value]="pais.id">
+                                    {{pais.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                    </form>
+            <form [formGroup]="dataFormGroup">
+                
+                <div class="row">
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="text" formControlName="names" placeholder="Nombres" name="names" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="text" formControlName="last_names" placeholder="Apellidos"
+                                name="last_names" readonly>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="text" formControlName="identification_card" placeholder="Cédula"
+                                name="identification_card" readonly>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="text" formControlName="mobile_phone" placeholder="Número Móvil"
+                                name="mobile_phone" readonly>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput [matDatepicker]="picker" formControlName="birth_date" [min]="minDate" [max]="maxDate" placeholder="Fecha de Nacimiento" name="birth_date"  readonly>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                    <div class="text-center">
+                        <div class="col-md-5" style="margin-top: 1rem;">
+                            <button mat-raised-button (click)="closeDialog()" class="btnCreate">
+                                Cerrar
+                            </button>
+                        </div>
+
+                    </div>    
+            </form>
+        </div>
+    </mat-card-content>

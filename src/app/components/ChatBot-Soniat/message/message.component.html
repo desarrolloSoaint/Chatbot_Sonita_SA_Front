@@ -1,0 +1,9 @@
+<div id={{messageInput.id}} [ngClass]="{'messagecontainer':true,'usermessage': messageInput.userMessage}">
+    <img  *ngIf="!messageInput.userMessage" class="imgbot" src="{{img}}" alt="">
+    <div [innerHtml]="messageInput.value" class="chatmessage" [ngClass] ="themeChatbot"></div>
+    <img *ngIf="messageInput.userMessage" class="imguser" src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" alt="img">
+</div>
+<div></div>
+
+
+

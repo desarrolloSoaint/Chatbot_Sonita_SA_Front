@@ -1,0 +1,33 @@
+<div id="container" class="a">
+    <div id="chatbotarea" [ngClass]="themeChatbot">
+        <div id="chatbot" *ngIf="!mostrar">
+            <header id="chatbothead">
+                <mat-icon style="cursor: pointer;" title="Encuesta de Satisfacción" (click)="openDialog(x)" *ngIf="edited==false || edited==undefined" class="encuesta">assignment</mat-icon>
+                <p style="margin-top: 1rem;">SONIAT </p>
+                <input class="filter" name="filterSearch" placeholder="Buscar" type="text" [(ngModel)]="filterSearch"
+                    (ngModelChange)="filterChanged($event)" />
+                <span id="minim_chat_window" class="icon_minim" (click)="toggleBox()"></span>
+            </header>
+            
+            <div id="chatbotmessage">
+                <ng-container *ngFor="let message of messages">
+                    <app-message [messageInput]='message'></app-message>
+                </ng-container>
+
+                <p class="men">{{this.writes}}</p>
+
+                <div id="last-message" #scroll></div>
+            </div>
+            
+            <footer>
+                <form [formGroup]="soniatForm" (ngSubmit)="onSubmit()">
+                    <input id="input" type="text" formControlName="message" placeholder="Escribe aquí..." autofocus
+                        #resetset>
+                    <button id="btn" type="submit" (click)="reset()"> &nbsp; <em class="fa fa-paper-plane fa-2x"></em>
+                        &nbsp; </button>
+                </form>
+            </footer>
+        </div>
+        <img id="ocultar" class="img_size" src="{{img}}" alt="" *ngIf="mostrar" (click)="toggleBox()">
+    </div>
+</div>

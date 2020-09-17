@@ -1,0 +1,87 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="azure" data-background-color="white">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-color:   blue"></div>
+    </div>
+    <div class="main-content">
+        <div class="col-md-12">
+            <mat-card>
+                <mat-toolbar class="mat-elevation-z8">
+                    <mat-icon style="margin-right: 1rem;">insert_photo</mat-icon>
+                    <mat-card-title style="margin-top: 0.8rem;">{{titulo}}</mat-card-title>
+                    <img src="{{img1}}" class="image ml-1" alt="">
+                    <span class="toolbar-spacer"></span>
+                    <app-look-and-feel></app-look-and-feel>
+                </mat-toolbar>
+                <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="Imágen">
+                        <mat-header-cell *matHeaderCellDef> Imágen </mat-header-cell>
+                        <mat-cell *matCellDef="let avatar1"> <img src="{{img}}{{avatar1.avatar}}" class="image"
+                                title="{{avatar1.avatar}}" alt="{{avatar1.avatar}}"> </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="Eliminar">
+                        <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+                        <mat-cell *matCellDef="let avatar1">
+                            <mat-icon title="Eliminar" (click)="Borrar(avatar1)">delete</mat-icon>
+                        </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="Seleccionar">
+                        <mat-header-cell *matHeaderCellDef> Seleccionar </mat-header-cell>
+                        <mat-cell *matCellDef="let avatar1">
+                            <div (click)="obtener(avatar1)">
+                                <button (click)="elegir(archivar1Form)" type="submit" title="Muestra el Avatar del Chat"
+                                    value="Guardar" class="btn btn-primary mb-2 "
+                                    style="background-color: #006595;">Usar Avatar</button>
+                            </div>
+                        </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-5">
+                        </div>
+                        <div class="col">
+                            <div *ngIf="avatar1.length==0">
+                                <div id="contenido">
+                                    <mat-spinner></mat-spinner>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                        </div>
+                    </div>
+                </div>
+                <mat-paginator [pageSizeOptions]="[3, 6, 10]" showFirstLastButtons></mat-paginator>
+            </mat-card>
+            <form class="form-inline mt-1" enctype="multipart/form-data" #archivarForm="ngForm"
+                (ngSubmit)="onSubmit1()">
+                <div class="container text-center mt-1">
+                    <div class="row mt-3">
+                        <div class="col-3"> </div>
+                        <div class="col-6">
+                            <mat-form-field>
+                                <ngx-mat-file-input class="input" #removableInput
+                                    placeholder="Toca Aquí para Seleccionar la Foto" [(ngModel)]="file" name="file"
+                                    (change)="fileEvent($event)" accept=".png" required>
+                                </ngx-mat-file-input>
+                                <button mat-icon-button matSuffix *ngIf="!removableInput.empty"
+                                    (click)="removableInput.clear($event)">
+                                    <mat-icon>clear</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" value="Guardar" class="btn btn-primary mb-2"
+                                style="background-color: #006595;"
+                                [disabled]="!archivarForm.form.valid">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

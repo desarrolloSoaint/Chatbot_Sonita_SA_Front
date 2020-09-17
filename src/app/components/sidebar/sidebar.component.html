@@ -1,0 +1,53 @@
+<div class="logo" style="background-color:  #074180">
+    <a class="simple-text" style="color:white ;">
+        <div class="logo-img" class="{{identity.foto}} nav-item">
+            <div *ngIf=" !carga" >
+                <mat-spinner [diameter]="60"></mat-spinner>
+                </div>
+            <img class="imga" src="{{rutaimagen}}" ng-fallimg alt="">
+            
+            <a>
+                <mat-icon (click)="openDialog()" class="mover cursor" title="Cargar foto">
+                    add_a_photo</mat-icon>
+            </a>
+        </div>
+        SOAINT
+    </a>
+    <div class="simple-text" style="color:white ;">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-3">
+                </div> -->
+                <div class="col">
+                    <p>
+                        {{ infos.email }}
+                        <br>
+                        <label class="rol">{{infos.authorities}}</label>
+                    </p>
+               
+                <div class="col-3">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sidebar-wrapper" style="background-color:   rgba(7,65,128,1);">
+  
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item"
+            style="text-decoration: white;" >
+            <a class="nav-link"  *ngIf="isAdmin"  [routerLink]="[menuItem.path]">
+                <i class="material-icons" >{{menuItem.icon}}</i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItems of menuItemss" class="{{menuItems.class}} nav-item">
+            <a class="nav-link" *ngIf="adminrol && adminrol !=isAdmin" [routerLink]="[menuItems.path]">
+                <i class="material-icons">{{menuItems.icon}}</i>
+                <p>{{menuItems.title}}</p>
+            </a>
+        </li>
+    </ul>
+</div>

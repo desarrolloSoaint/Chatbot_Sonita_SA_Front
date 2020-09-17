@@ -1,0 +1,78 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+    
+            <form class="form" style="margin-top: 3rem;">
+                <mat-form-field class="example-full-width">
+                  <span class="toolbar-spacer"> </span>
+                  <input matInput placeholder="Buscar" (keyup)="filter($event.target.value)">
+                  <mat-icon matSuffix class="button">search</mat-icon>
+                </mat-form-field>
+            </form>  
+
+            <div class="col-md-12">
+                <mat-card>
+                    <!-- <mat-card-header class="toolbar mat-elevation-z8"> --> 
+                        <mat-toolbar class="toolbar"> 
+                            <mat-icon style="margin-right: 1rem;" >person</mat-icon>    
+                            <mat-card-title  style="margin-top: 0.8rem; color: rgb(252, 248, 248);">{{titulo}}</mat-card-title>
+                            <span class="toolbar-spacer"></span>
+                            Nuevo<mat-icon class="button" title="Crear" (click)="this.openDataUser()" >add</mat-icon> 
+                        </mat-toolbar>
+                    <!-- </mat-card-header> -->
+                    <mat-table [dataSource]="dataSource" matSort>
+                        <ng-container matColumnDef="Email">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+                          <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+                        </ng-container>
+                      
+                        <ng-container matColumnDef="Roles">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Roles </mat-header-cell>
+                          <mat-cell *matCellDef="let user"> {{user.roles?.length > 0 ? user.roles[0].rolName : ''}} </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Ver">
+                            <mat-header-cell *matHeaderCellDef> Ver </mat-header-cell>
+                            <mat-cell *matCellDef="let user"><mat-icon class="button" title="Ver" (click)="openSearch(user)">visibility</mat-icon> </mat-cell>
+                        </ng-container>
+                        
+                        <ng-container matColumnDef="Modificar">
+                            <mat-header-cell *matHeaderCellDef> Modificar </mat-header-cell>
+                            <mat-cell *matCellDef="let user"><mat-icon class="button" title="Editar" (click)="openEdit(user)">editar</mat-icon> </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Eliminar">
+                            <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+                            <mat-cell *matCellDef="let user"><mat-icon class="button" title="Eliminar" (click)="deleted(user)">delete</mat-icon></mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
+                    </mat-table>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-5"> </div>
+                            <div class="col">
+                                <div *ngIf="userList.length==0">
+                                    <div id="contenido">
+                                        <mat-spinner></mat-spinner>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5"></div>
+                        </div>
+                    </div>
+
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+
+:root{
+    --background: #ff0000;
+    --messageBot: #a1a1a48c;
+    --font: white;
+  }
+  
+  
+  @font-face{
+    font-family: Titillum;
+    src: url(assets/fonts/titillium/TitilliumWeb-Regular.ttf) format("opentype");
+  }
+  
+  
+  @font-face{
+    font-family: Titillum;
+    src: url(assets/fonts/openSans/OpenSans-Regular.ttf) format("opentype");
+  }
+  
+  
+  .user-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+
+  

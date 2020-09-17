@@ -1,0 +1,36 @@
+<mat-toolbar class="toolbar">
+    <mat-card-title>{{titulo}}</mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon class="button" title="Cerrar" (click)="closeDialog()">close</mat-icon> 
+</mat-toolbar>
+<mat-card-content>
+    <div class="container">
+        <form [formGroup]="formGroup" #archivarForm="ngForm" (ngSubmit)="onSubmit1(archivarForm)">
+            <div class="row">
+                <mat-form-field class="example-full-width ml-2">
+                    <div class="form">
+                        <input matInput type="text" placeholder="Nombre" formControlName="money"
+                            [(ngModel)]="currency.money" name="money" required>
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="example-full-width ml-2">
+                    <div class="form">
+                        <input matInput type="text" placeholder="Abreviación" formControlName="abbreviation"
+                            [(ngModel)]="currency.abbreviation" name="abbreviation" required>
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="example-full-width ml-2">
+                    <div class="form">
+                        <input matInput type="text" placeholder="Simbolo" formControlName="symbol"
+                            [(ngModel)]="currency.symbol" name="symbol" required>
+                    </div>
+                </mat-form-field>
+            </div>
+            <div class="text-center">
+                <button mat-raised-button type="submit" [disabled]="!archivarForm.form.valid" class="btn  color">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</mat-card-content>

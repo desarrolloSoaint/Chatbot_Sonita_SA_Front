@@ -1,0 +1,54 @@
+<div class="row">
+  <div class=" col-md-12">
+    <div class="card">
+      <mat-card>
+        <mat-card-header class="toolbar mat-elevation-z8">
+          <mat-toolbar class="toolbar">
+            <mat-icon style="margin-right: 1rem;">playlist_add_check</mat-icon>
+            <mat-card-title style="margin-top: 0.8rem; color: rgb(252, 248, 248); Cursor : Pointer"
+              matTooltip="historial de la Encuesta en el Chatbot"> Historial de Encuestas</mat-card-title>
+              <span class="toolbar-spacer " style="margin-left: 636px;">
+                <mat-icon title="Descargar Excel" title="Descargar Excel"
+                (click)="exporter.exportTable('xlsx', {fileName:'Historial_Encuesta', sheet: 'Historial_Encuesta'})"
+                  class="pointer">cloud_download</mat-icon>
+              </span>
+          </mat-toolbar>
+        </mat-card-header>
+        <mat-table matTableExporter  [dataSource]="dataSources" #exporter="matTableExporter" class="mat-elevation-z8">
+          <ng-container matColumnDef="Cliente">
+            <mat-header-cell *matHeaderCellDef> Clientes</mat-header-cell>
+            <mat-cell *matCellDef="let histe"> {{histe.id_client.email}} {{histe.id_client_private.email}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Quedo Conforme con la informacion suministrada">
+            <mat-header-cell *matHeaderCellDef> Quedó Conforme con la Información Suministrada </mat-header-cell>
+            <mat-cell *matCellDef="let histe"> {{histe.quiz_one}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="evaluando la calidad del chatbot,como lo identifica">
+            <mat-header-cell *matHeaderCellDef> Evaluando la Calidad del Chatbot como lo Identifica </mat-header-cell>
+            <mat-cell *matCellDef="let histe"> {{histe.quiz_two}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="volveria a recurrir a preguntarle al chatbot">
+            <mat-header-cell *matHeaderCellDef> Volvería a Recurrir a Preguntarle al Chatbot </mat-header-cell>
+            <mat-cell *matCellDef="let histe">{{histe.quiz_three}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumnss"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumnss;"></mat-row>
+        </mat-table>
+        <div class="container">
+          <div class="row">
+            <div class="col-5">
+            </div>
+            <div class="col">
+              <div *ngIf="histe.length==0 && !load">
+                <mat-spinner></mat-spinner>
+              </div>
+            </div>
+            <div class="col-5">
+            </div>
+          </div>
+        </div>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.toolbar-spacer {
+    flex : 2  1 auto;
+}
+
+.toolbar{
+	color:white;
+	background-color: #004e82;
+    align-items: center;
+}
+.card2{
+    max-width: 400px;
+}
+.cursor{
+    cursor: pointer;
+}
+.material-icons{
+    font-size: 29px;
+    margin-left: 3%;
+    height: 33px;
+    
+
+}

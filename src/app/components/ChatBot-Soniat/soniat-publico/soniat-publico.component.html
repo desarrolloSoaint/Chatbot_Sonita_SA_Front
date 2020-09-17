@@ -1,0 +1,86 @@
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<div id="container">
+    <div id="chatbotarea" [ngClass]="themeChatbot">
+        <div id="chatbot" *ngIf="mostrar">
+            <header id="chatbothead">
+                <p class="mb-0">SONIAT </p>
+                <span id="minim_chat_window" class="icon_minim" (click)="toggleBox()"></span>
+            </header>
+            <div id="chatbotmessage" >
+                <div class="row">
+                    <div class="col">
+                            <input [(ngModel)]="showContent"   [checked]='true'  type="radio"  name="showContent" [value]="2"> Público
+                        </div>
+                    <div class="col">
+                        <input [(ngModel)]="showContent" type="radio" name="publico" value="3" /> Privado
+                    </div>
+                </div>
+
+                <div [ngSwitch]="showContent">
+                    <div *ngSwitchCase="2">
+                        <form name="form" [formGroup]="form" #archivarForm="ngForm" (ngSubmit)="onSubmit1(archivarForm)" style="height: 236px">
+                            <label for="exampleFormControlSelect1">País: </label>
+                            <select class="custom-select"  matInput  name="pais" formControlName="pais" [(ngModel)]="clientes.id_country" required>
+                                <option disabled selected value="null">Seleccionar</option>
+                                <option *ngFor="let countrys of id" value="{{ countrys.id }}">
+                                    {{ countrys.name | titlecase }}</option>
+                            </select>
+                            <div class="form-group mt-3" style="margin-bottom: 7px;">
+                                <label >Correo Electrónico: </label>
+                                <input type="email" class="form-control" formControlName="email"
+                                    placeholder="name@example.com" matInput #email name="email" [(ngModel)]="clientes.email" required>
+                            </div>
+                            <div *ngIf="errorMsg" class="alert alert-danger  text-center" style="margin-bottom:10px ; ">{{errorMsg.error.mensaje}}</div>
+                            <div class="text-center">
+                                <button type="submit" class="btn color " [disabled]="!archivarForm.form.valid" >Iniciar Chat</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div *ngSwitchCase="3">
+                        <form name="formC" [formGroup]="formC"  #f="ngForm" style="height: 228px" (ngSubmit)="onSubmit(f)">
+                            <div class="form-group">
+                                <label>Email: </label>
+                                <input type="email" class="form-control" 
+                                    placeholder="Email" formControlName="email" matInput [(ngModel)]="clientesPrivado.email" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label >Password </label>
+                                    <input type="password" class="form-control" 
+                                        placeholder="Password" formControlName="password" matInput [(ngModel)]="clientesPrivado.password" required>
+                                </div>
+                                <div class="col">
+                                    <label for="exampleFormControlSelect1">País: </label>
+                                    <select class="custom-select"  matInput  name="pais" formControlName="pais" [(ngModel)]="clientesPrivado.id_country" required>
+                                        <option disabled selected value="null">Seleccionar</option>
+                                        <option *ngFor="let countrys of id" value="{{ countrys.id }}">
+                                            {{ countrys.name | titlecase }}</option>
+                                    </select>
+                                </div>
+                              
+                                    
+                            </div>
+                            <div *ngIf="errorMsg1" class="alert alert-danger  text-center mt-2" style="margin-bottom:10px ; ">{{errorMsg1.error.mensaje}}</div>
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn color " [disabled]="!f.form.valid" >Iniciar Chat</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <img id="ocultar" class="img_size" src="{{img}}" alt="" *ngIf="!mostrar" (click)="toggleBox()">
+    </div>
+    <a [routerLink]="['/login']">Sistema Administrativo ChatBot</a>
+</div>
+

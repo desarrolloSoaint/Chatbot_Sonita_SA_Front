@@ -1,0 +1,29 @@
+.toolbar{
+	color:white;
+	background-color: #004e82;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+.toolbar-spacer {
+    flex : 2  1 auto;
+}
+.mat-calendar-body-selected {
+	background-color: #004e82;
+}
+.file{
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 0.5rem;
+}
+.button{
+    cursor: pointer;
+    color: white;
+    background-color:#004e82 ;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.mat-card-title {
+    margin-top: 1.5rem;
+}
+

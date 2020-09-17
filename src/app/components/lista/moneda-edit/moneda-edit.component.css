@@ -1,0 +1,20 @@
+.toolbar{
+	color:white;
+	background-color: #004e82;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.mat-calendar-body-selected {
+	background-color: #004e82;
+} 
+.color{
+    background-color: #006595!important;
+}
+.toolbar-spacer {
+    flex : 2  1 auto;
+}
+
+.button{
+    cursor: pointer;
+}

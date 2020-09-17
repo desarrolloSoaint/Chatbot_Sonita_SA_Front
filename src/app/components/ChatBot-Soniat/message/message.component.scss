@@ -1,0 +1,191 @@
+@import"../../../../assets/scss/core/ThemeSoniat/soniat.scss";
+
+.chatmessage{
+  // background-color:$messageBotBackground;
+  // color: $messageBotFont;
+  /* padding: 1rem; */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  /* border-radius: 25px; */
+  /* max-width: 90%;
+  width: 100%; */
+    font-size: 13px; 
+    text-align: justify;
+    font-family: 'Noto Sans JP', sans-serif; 
+    padding: 0.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    max-width: 90%;
+    width: auto;
+}
+.usermessage > .chatmessage{
+  //background-color:$backgroundBHM;
+  //color:$fontHM;
+  margin-right: 0.2rem;
+  justify-self: flex-end;
+}
+.messagecontainer{
+  display:flex;
+  justify-content: flex-start;
+} 
+.messagecontainer.usermessage{
+  justify-content: flex-end;
+}
+.imgbot{
+background-repeat: no-repeat;
+width: 20%;
+height: 10%;
+border-radius: 100%;
+}
+.imguser{
+background-repeat: no-repeat;
+  width: 13%;   
+  height: 10%;
+  border-radius: 100%;
+  padding-left: 0.2rem;
+  padding-bottom: 0.7rem;
+}
+@media only screen and (min-device-width: 320px) 
+and (max-device-width: 340px) 
+and (-webkit-min-device-pixel-ratio: 2){
+#chatbotarea{
+  grid-template-columns: 1fr ;
+  grid-template-rows: 1fr ;
+  grid-template-areas:"chatarea";
+} 
+}
+@media only screen and (min-device-width: 350px) 
+and (max-device-width: 370px) 
+and (-webkit-min-device-pixel-ratio: 2){
+#chatbotarea{
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"chatarea";
+}
+}
+@media only screen and (min-device-width: 375px) 
+and (max-device-width: 667px) 
+and (-webkit-min-device-pixel-ratio: 2){
+#chatbotarea{
+grid-template-columns: 1fr;
+grid-template-rows: 1fr;
+grid-template-areas:"chatarea";
+}
+}
+@media only screen and (max-device-width: 700px){
+#chatbotarea{
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:"chatarea";
+}
+}
+////////////////THEMES//////////////////////
+.theme-yellow{
+  .chatmessage{
+    @extend %yellow4;
+  }
+  .usermessage > .chatmessage{
+    @extend %yellow1;
+    @extend %yellow2;
+  }
+}
+.theme-blue{
+  .chatmessage{
+    @extend %blue4;
+  }
+  .usermessage > .chatmessage{
+    @extend %blue1;
+    @extend %blue2;
+  }
+}
+.theme-green{
+  .chatmessage{
+    @extend %green4;
+  }
+  .usermessage > .chatmessage{
+    @extend %green1;
+    @extend %green2;
+  }
+}
+.theme-orange{
+  .chatmessage{
+    @extend %orange4;
+  }
+  .usermessage > .chatmessage{
+    @extend %orange1;
+    @extend %orange2;
+  }
+}
+.theme-purple{
+  .chatmessage{
+    @extend %purple4;
+  }
+  .usermessage > .chatmessage{
+    @extend %purple1;
+    @extend %purple2;
+  }
+}
+.theme-red{
+  .chatmessage{
+    @extend %red4;
+  }
+  .usermessage > .chatmessage{
+    @extend %red1;
+    @extend %red2;
+  }
+}
+.theme-yellowDark{
+  .chatmessage{
+    @extend %yellowDark4;
+  }
+  .usermessage > .chatmessage{
+    @extend %yellowDark1;
+    @extend %yellowDark2;
+  }
+}
+.theme-blueDark{
+  .chatmessage{
+    @extend %blueDark4;
+  }
+  .usermessage > .chatmessage{
+    @extend %blueDark1;
+    @extend %blueDark2;
+  }
+}
+.theme-greenDark{
+  .chatmessage{
+    @extend %greenDark4;
+  }
+  .usermessage > .chatmessage{
+    @extend %greenDark1;
+    @extend %greenDark2;
+  }
+}
+.theme-orangeDark{
+  .chatmessage{
+    @extend %orangeDark4;
+  }
+  .usermessage > .chatmessage{
+    @extend %orangeDark1;
+    @extend %orangeDark2;
+  }
+}
+.theme-purpleDark{
+  .chatmessage{
+    @extend %purpleDark4;
+  }
+  .usermessage > .chatmessage{
+    @extend %purpleDark1;
+    @extend %purpleDark2;
+  }
+}
+.theme-redDark{
+  .chatmessage{
+    @extend %redDark4;
+  }
+  .usermessage > .chatmessage{
+    @extend %redDark1;
+    @extend %redDark2;
+  }
+}

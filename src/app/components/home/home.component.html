@@ -1,0 +1,335 @@
+<div class="wrapper">
+    <div class="sidebar" data-color="azure" data-background-color="white">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-color:   blue"></div>
+    </div>
+    <div class="main-panel">
+        <app-navbar></app-navbar>
+        <div class="main-content">
+            <div class="row">
+                <mat-card class="cardUsuario">
+                    <mat-card-header>
+                        <mat-icon>signal_cellular_alt</mat-icon>
+                        <span class="toolbar-spacer"></span>
+                        <h4 title="Muestra la Cantidad de Usuarios en el Sistema">{{titulo1}}</h4>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1>{{userCount}}</h1>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <mat-list dense>
+                            <mat-toolbar-row>
+                                <mat-list-item>
+                                    <h5>{{titulo5}}</h5>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <h5>{{titulo6}}</h5>
+                                </mat-list-item>
+                            </mat-toolbar-row>
+                        </mat-list>
+                        <mat-list dense>
+                            <mat-toolbar-row style=" margin-left: 2.5rem;">
+                                <mat-list-item>
+                                    <p>{{userCountWeek}}</p>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <p>{{userCountDay}}</p>
+                                </mat-list-item>
+                            </mat-toolbar-row>
+                        </mat-list>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="cardPublicos">
+                    <mat-card-header>
+                        <mat-icon>signal_cellular_alt</mat-icon>
+                        <span class="toolbar-spacer"></span>
+                        <h4 title="Muestra la Cantidad de Clientes Públicos en el Sistema">{{titulo2}}</h4>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1>{{cpublicCount}}</h1>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <mat-list dense>
+                            <mat-toolbar-row>
+                                <mat-list-item>
+                                    <h5>{{titulo5}}</h5>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <h5>{{titulo6}}</h5>
+                                </mat-list-item>
+                            </mat-toolbar-row>
+                        </mat-list>
+                        <mat-list dense>
+                            <mat-toolbar-row style="margin-left: 2.5rem;">
+                                <mat-list-item>
+                                    <p>{{cpublicCountWeek}}</p>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <p>{{cpublicCountDay}}</p>
+                                </mat-list-item>
+                            </mat-toolbar-row>
+                        </mat-list>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="cardPrivado">
+                    <mat-card-header>
+                        <mat-icon>signal_cellular_alt</mat-icon>
+                        <span class="toolbar-spacer"></span>
+                        <h4 title="Muestra la Cantidad de Clientes Privados en el Sistema">{{titulo3}}</h4>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1>{{cprivadoCount}}</h1>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <mat-list dense>
+                            <mat-toolbar-row>
+                                <mat-list-item>
+                                    <h5>{{titulo5}}</h5>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <h5>{{titulo6}}</h5>
+                                </mat-list-item>
+                            </mat-toolbar-row>
+                        </mat-list>
+                        <mat-list dense>
+                            <mat-toolbar-row style=" margin-left: 2.5rem;">
+                                <mat-list-item>
+                                    <p>{{cprivadoCountWeek}}</p>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <p>{{cprivadoCountDay}}</p>
+                                </mat-list-item>
+                            </mat-toolbar-row>
+                        </mat-list>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="cardChatbot">
+                    <mat-card-header>
+                        <mat-icon>signal_cellular_alt</mat-icon>
+                        <span class="toolbar-spacer"></span>
+                        <h4 title="Muestra la Cantidad de Preguntas y Respuestas hechas al Chatbot">{{titulo4}}</h4>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1>{{questionCount}}</h1>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <mat-list dense>
+                            <mat-toolbar-row>
+                                <mat-list-item>
+                                    <h5>{{titulo5}}</h5>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <h5>{{titulo6}}</h5>
+                                </mat-list-item>
+                            </mat-toolbar-row>
+                        </mat-list>
+                        <mat-list dense>
+                            <mat-toolbar-row style=" margin-left: 2.5rem;">
+                                <mat-list-item>
+                                    <p>{{questionCountWeek}}</p>
+                                </mat-list-item>
+                                <mat-list-item>
+                                    <p>{{questionCountDay}}</p>
+                                </mat-list-item>
+                            </mat-toolbar-row>
+                        </mat-list>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="row">
+                <mat-card class="cardUsuarioFrecuente">
+                    <mat-toolbar>
+                        <mat-toolbar-row>
+                            <mat-icon style="margin-left: 1rem; margin-top: 1rem;">people</mat-icon>
+                            <h3 style="color:white;">{{titulo8}}</h3>
+                            <span class="toolbar-spacer"></span>
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+                        <mat-tab label="{{titulo11}}">
+                            <mat-list dense>
+                                <mat-toolbar-row>
+                                    <mat-list-item>
+                                        <h4 title="Muestra el Cliente Público más Frecuente del Mes Pasado"
+                                            style="color: black;">Cliente Público</h4>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <h4 style="color: black;">{{PublicFrequencyLast.email}}{{titulo14}}</h4>
+                                    </mat-list-item>
+                                </mat-toolbar-row>
+                            </mat-list>
+                            <mat-divider></mat-divider>
+                            <mat-list dense>
+                                <mat-toolbar-row>
+                                    <mat-list-item>
+                                        <h4 title="Muestra el Cliente Privado más Frecuente del Mes Pasado"
+                                            style="color: black;">Cliente Privado</h4>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <h4 style="color: black;">{{PrivateFrequencyLast.email}}{{titulo13}}</h4>
+                                    </mat-list-item>
+                                </mat-toolbar-row>
+                            </mat-list>
+                        </mat-tab>
+                        <mat-tab label="{{titulo6}}">
+                            <mat-list dense>
+                                <mat-toolbar-row>
+                                    <mat-list-item>
+                                        <h4 title="Muestra el Cliente Público más Frecuente del Día"
+                                            style="color: black;">Cliente Público</h4>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <h4 style="color: black;">{{PublicFrequencyToday.email}}{{titulo16}}</h4>
+                                    </mat-list-item>
+                                </mat-toolbar-row>
+                            </mat-list>
+                            <mat-divider></mat-divider>
+                            <mat-list dense>
+                                <mat-toolbar-row>
+                                    <mat-list-item>
+                                        <h4 title="Muestra el Cliente Privado más Frecuente del Día"
+                                        style="color: black;">Cliente Privado</h4>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <h4 style="color: black;" >{{PrivateFrequencyToday.email}}{{titulo15}}</h4>
+                                    </mat-list-item>
+                                </mat-toolbar-row>
+                            </mat-list>
+                        </mat-tab>
+                    </mat-tab-group>
+                </mat-card>
+                <mat-card class="cardRedireccionamiento">
+                    <mat-card-header>
+                        <h4 title="Muestra la Cantidad de Respuestas con Redireccionamiento">{{titulo9}}</h4>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1>{{responseLinkCount}}</h1>
+                    </mat-card-content>
+                    <mat-divider></mat-divider>
+                    <mat-card-header>
+                        <h4 title="Muestra la Cantidad de Conversaciones Expiradas por Tiempo">{{titulo10}}</h4>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1>{{timeExpiredCount}}</h1>
+                    </mat-card-content>
+                    <mat-card-actions>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                <form class="navbar-form">
+                    <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="Search...">
+                        <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <em class="material-icons">search</em>
+                            <div class="ripple-container"></div>
+                        </button>
+                    </div>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <em class="material-icons">notifications</em>
+                            <span class="notification">5</span>
+                            <p>
+                                <span class="d-lg-none d-md-block">Some Actions</span>
+                            </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your email</a>
+                            <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
+                            <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
+                            <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
+                            <a class="dropdown-item" href="javascript:void(0)">Another One</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">
+                    <li class="nav-item ">
+                        <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <em class="material-icons">person</em>
+                            <p>
+                                <span class="d-lg-none d-md-block">Some Actions</span>
+                            </p>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" (click)="logOut()">Salir</a>
+                        </div>
+                    </li>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <form class="navbar-form">
+                <div class="input-group no-border">
+                    <input type="text" value="" class="form-control" placeholder="Search...">
+                    <button mat-raised-button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <em class="material-icons">search</em>
+                        <div class="ripple-container"></div>
+                    </button>
+                </div>
+            </form>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <em class="material-icons">notifications</em>
+                        <span class="notification">5</span>
+                        <p>
+                            <span class="d-lg-none d-md-block">Some Actions</span>
+                        </p>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your email</a>
+                        <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
+                        <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
+                        <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
+                        <a class="dropdown-item" href="javascript:void(0)">Another One</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">
+                <li class="nav-item ">
+                    <a class="nav-link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <em class="material-icons">person</em>
+                        <p>
+                            <span class="d-lg-none d-md-block">Some Actions</span>
+                        </p>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" click="logOut()">Salir</a>
+                    </div>
+                </li>
+                </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div *ngIf="info.token; else loggedOut">
+</div>
+<ng-template #loggedOut>
+    <div class="container" *ngIf="info.token; else logOut()">
+        No has iniciado sesión
+    </div>
+</ng-template>

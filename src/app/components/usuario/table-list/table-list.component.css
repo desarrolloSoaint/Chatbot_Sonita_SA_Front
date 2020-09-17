@@ -1,0 +1,26 @@
+.toolbar{
+	color:white;
+	background-color: #004e82;
+    align-items: center;
+}
+/* .toolbarEdit{
+	color:white;
+	background-color: #004e82;
+    border-radius: 1rem;
+    align-items: center;
+    width: 90%;
+    margin-left: 1.5rem;
+    margin-top: 2rem;
+} */
+.toolbar-spacer {
+    flex : 2  1 auto;
+}
+.card2{
+    max-width: 400px;
+}
+.button{
+    cursor: pointer;
+} 
+form{
+    margin-left: 1.5rem;
+}

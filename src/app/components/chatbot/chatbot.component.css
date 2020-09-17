@@ -1,0 +1,41 @@
+.background1{ 
+    z-index:1; width:200px; height:200px;border-radius: 100px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+/* 
+.pointer{
+    cursor:pointer;
+} */
+
+mat-icon{
+    cursor:pointer;
+}
+button{
+    cursor:pointer;
+}
+.span{
+    text-align: left;
+}
+.toolbar-spacer {
+    flex : 2  1 auto;
+}
+.image{
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px
+}
+mat-toolbar{
+    background-color:#006595 ;
+    color:white;
+    align-items: center;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #006595 !important;
+}
+form{
+    margin-left: 1.5rem;
+}

@@ -1,0 +1,68 @@
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<div class="text-center mt-2">
+  <div class="row" style="width:100%">
+    <div class="col-lg-5 mr-4">
+      <a [routerLink]="['/soniatpublic']">Conversa con SONIAT</a>
+    </div>
+    <img src="{{ this.logo }}" id="logo" alt="...">
+  </div>
+</div>
+
+<mat-card class="card card-container" style="margin-top: 1px;">
+  <div class="container">
+    <img id="profile-img" class="profile-img-card" src="{{this.avatar}}" alt="" />
+    <p id="profile-name" class="profile-name-card">Iniciar Sesión</p>
+    <form name="form" #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+      <div class="row">
+        <div class="col-lg-1 col-1">
+          <mat-icon style="margin-top: 45px;">account_circle</mat-icon>
+        </div>
+        <div class="col-lg-10 col-10 mt-4 pt-1">
+          <mat-form-field class="example-full-width">
+            <mat-label>Usuario</mat-label>
+            <input matInput name="email" [(ngModel)]="form.email" required>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-3"> </div>
+            <div class="col">
+                <div *ngIf="spinnerActive == true && isLogged==true">
+                    <mat-spinner></mat-spinner>
+                </div> 
+            </div>
+            <div class="col-5"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-1 col-1">
+          <mat-icon style="margin-top: 22px;">lock</mat-icon>
+        </div>
+        <div class="col-lg-10 col-10 mt-2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput name="password" [(ngModel)]="form.password" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger mt-3 text-center">Credeciales Incorrectas
+        {{ errorMsg }}</div>
+      <button mat-raised-button type="submit" (click)="spinner()" class="btn btn-block color" [disabled]="!f.form.valid"
+        style="margin-top: 30px;border-radius: 16px;">Iniciar Sesión</button>
+      <!-- <div class="text-center " id="password">
+        <a>¿Olvidaste tú Contraseña?</a>
+      </div> -->
+    </form>
+  </div>
+  
+</mat-card>

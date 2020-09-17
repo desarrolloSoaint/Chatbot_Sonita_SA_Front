@@ -1,0 +1,33 @@
+<mat-toolbar class="toolbar">
+    <mat-card-title>{{titulo}}</mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon class="button" title="Cerrar" (click)="closeDialog()">close</mat-icon>
+</mat-toolbar>
+<mat-card-content>
+    <div class="container">
+        <form class="form-inline mt-2" enctype="multipart/form-data" #archivarForm="ngForm"
+            (ngSubmit)="onSubmit1()">
+            <div class="container text-center">
+                <div class="row mt-3">
+                    <div class="col">
+                        <mat-form-field>
+                            <ngx-mat-file-input class="input" #removableInput placeholder="Toca Aquí y Elige un AIML"
+                                [(ngModel)]="file" name="file" (change)="fileEvent($event)" accept=".aiml" required>
+                            </ngx-mat-file-input>
+                            <button mat-icon-button matSuffix *ngIf="!removableInput.empty"
+                                (click)="removableInput.clear($event)">
+                                <mat-icon>clear</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" value="Actualizar" class="btn btn-primary mb-2"
+                            style="background-color: #006595;" [disabled]="!archivarForm.form.valid">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</mat-card-content>

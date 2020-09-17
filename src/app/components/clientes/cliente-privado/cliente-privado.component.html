@@ -1,0 +1,95 @@
+<div class="sidebar" data-color="azure" data-background-color="white" >
+    <app-sidebar></app-sidebar>
+    <div class="sidebar-background" style="background-color:blue"></div>
+</div>
+<div class="main-panel">
+    <app-navbar></app-navbar>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12"> 
+                    <mat-card>
+                        <mat-card-header class="toolbar mat-elevation-z8">
+                            <mat-toolbar class="toolbar">
+                                <mat-card-title style="color: rgb(252, 248, 248);">{{ title }}</mat-card-title>
+                                <span class="toolbar-spacer"></span>
+                                Nuevo<mat-icon title="Crear" (click)="openDialog(x)" class="pointer">add</mat-icon>
+                            </mat-toolbar>
+                        </mat-card-header>
+                        <mat-table [dataSource]="dataSource" matSort>
+                            <ng-container matColumnDef="Usuario">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </mat-header-cell>
+                                <mat-cell *matCellDef="let clientePrivado"> {{clientePrivado.email}} </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="País">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header> País </mat-header-cell>
+                                <mat-cell *matCellDef="let clientePrivado"> {{clientePrivado.id_country.name}}</mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Ver">
+                                <mat-header-cell *matHeaderCellDef> Ver </mat-header-cell>
+                                <mat-cell *matCellDef="let clientePrivado"><mat-icon class="pointer" title="Ver" (click)="openDialogView(clientePrivado, clientesPrivados)">visibility</mat-icon> </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Modificar">
+                                <mat-header-cell *matHeaderCellDef> Modificar </mat-header-cell>
+                                <mat-cell *matCellDef="let clientePrivado">
+                                    <mat-icon class="pointer" title="Editar" (click)="openDialog1(clientePrivado)">editar
+                                    </mat-icon>
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Eliminar">
+                                <mat-header-cell *matHeaderCellDef> Eliminar </mat-header-cell>
+                                <mat-cell *matCellDef="let clientePrivado">
+                                    <mat-icon (click)="Borrar(clientePrivado)" title="Borrar" class="pointer">delete
+                                    </mat-icon>
+                                </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;"> </mat-row>
+                        </mat-table>
+                        <div class="container">
+                            <div class="row">
+                              <div class="col-5">
+                              </div>
+                              <div class="col">
+                                    <div *ngIf="clientesPrivados.length==0">
+                                        <div id="contenido">
+                                            <mat-spinner></mat-spinner>
+                                        </div>
+                                    </div>
+                              </div>
+                              <div class="col-5">
+                              </div>
+                            </div>
+                          </div>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                    </mat-card>
+    <router-outlet></router-outlet>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

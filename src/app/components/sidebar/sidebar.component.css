@@ -1,0 +1,16 @@
+/* .toolbar-spacer {
+    flex : 2  1 auto;
+}
+.card2{
+    max-width: 400px;
+} */
+.cursor{
+    cursor: pointer;
+}
+/* .nav-item{
+    color: white;
+} */
+
+.form-check, label {
+    font-size: 12px;
+}

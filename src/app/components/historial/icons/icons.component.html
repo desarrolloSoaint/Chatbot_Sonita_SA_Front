@@ -1,0 +1,156 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon ">
+            <div class="card-icon" style="color: rgb(252, 248, 248);;"
+              style="background:linear-gradient( to left ,  #006595  , #015780)">
+              <i class="material-icons">history</i>
+            </div>
+            <p class="card-category" style="color: #000;">Hora Frecuente</p>
+            <h3 class="card-title">{{hor}}:00
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-info">update</i>
+              <a href="javascript:void(0)" style="color: #000;">{{mon}}:00 Hora Frecuente del Mes </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon" style="background:linear-gradient( to left ,  #006595  , #015780)">
+              <i class="material-icons ">store</i>
+            </div>
+            <p class="card-category">Respuesta con Link</p>
+            <h3 class="card-title">{{count}}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats" style="color: #000;">
+              <i class="material-icons text-info">date_range</i> {{countexp}} Cantidad Respuestas Expiradas
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 ">
+        <mat-card c>
+          <mat-card-header class="toolbar mat-elevation-z8">
+            <mat-toolbar class="toolbar">
+              <mat-icon style="margin-right: 1rem;">contact_page</mat-icon>
+              <mat-card-title style="margin-top: 0.8rem; color: rgb(252, 248, 248);Cursor : Pointer"
+                matTooltip="historial de Usuarios"> Historial Usuarios Frecuentes
+                <span class="toolbar-spacer" style="margin-left: 60px;"></span>
+              </mat-card-title>
+            </mat-toolbar>
+          </mat-card-header>
+          <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport">
+            <mat-tab-group>
+              <mat-tab label="Cliente público " class="tabla">
+                <mat-list dense>
+                  <mat-toolbar-row style="height: 20px;">
+                    <mat-list-item> Email
+                    </mat-list-item>
+                    <mat-list-item>Cantidad</mat-list-item>
+                    <mat-list-item>Descargar&nbsp;&nbsp;
+                      <mat-icon title="Descargar Excel" (click)="exportAsXLSX2()" class="pointer">cloud_download
+                      </mat-icon>
+                    </mat-list-item>
+                  </mat-toolbar-row>
+                </mat-list>
+                <mat-action-list *ngFor="let emilpub of emailpub "> {{emilpub}}</mat-action-list>
+              </mat-tab>
+              <mat-tab label="Cliente privado">
+                <mat-list dense>
+                  <mat-toolbar-row style="height: 20px;">
+                    <mat-list-item> Email
+                    </mat-list-item>
+                    <mat-list-item>Cantidad</mat-list-item>
+                    <mat-list-item>Descargar&nbsp;&nbsp;
+                      <mat-icon title="Descargar Excel" (click)="exportAsXLSX1()" class="pointer">cloud_download
+                      </mat-icon>
+                    </mat-list-item>
+                  </mat-toolbar-row>
+                </mat-list>
+                <mat-action-list *ngFor="let emai of email "> {{emai}}</mat-action-list>
+              </mat-tab>
+            </mat-tab-group>
+          </cdk-virtual-scroll-viewport>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="card">
+        <mat-card>
+          <mat-card-header class="toolbar mat-elevation-z8">
+            <mat-toolbar class="toolbar">
+              <mat-icon style="margin-right: 1rem;">history_edu</mat-icon>
+              <mat-card-title style="margin-top: 0.8rem; color: rgb(252, 248, 248); Cursor : Pointer"
+                matTooltip="historial del chat"> {{titulo}}
+                <span class="toolbar-spacer " style="margin-left: 500px;">
+                  <mat-icon title="Descargar Excel"
+                    (click)="exporter.exportTable('xlsx', {fileName:'Conversaciones_ChatBot', sheet: 'Conversaciones_ChatBot'})"
+                    >cloud_download</mat-icon>
+                </span>
+              </mat-card-title>
+            </mat-toolbar>
+          </mat-card-header>
+          <mat-table matTableExporter #exporter="matTableExporter" [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="Time_response_soniat">
+              <mat-header-cell *matHeaderCellDef> Time_response_soniat </mat-header-cell>
+              <mat-cell *matCellDef="let hist"> {{hist.time_response_soniat}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Cliente">
+              <mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
+              <mat-cell *matCellDef="let hist" (click)="openDialog1(hist)"> {{hist.id_client.email}}
+                {{hist.id_client_private.email}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Expired_time">
+              <mat-header-cell *matHeaderCellDef> Expired_time </mat-header-cell>
+              <mat-cell *matCellDef="let hist"> {{hist.expired_time}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Question_client">
+              <mat-header-cell *matHeaderCellDef> Question_client </mat-header-cell>
+              <mat-cell *matCellDef="let hist"> {{hist.question_client}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Time_question_client">
+              <mat-header-cell *matHeaderCellDef> Time_question_client </mat-header-cell>
+              <mat-cell *matCellDef="let hist"> {{hist.time_question_client}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Response_soniat">
+              <mat-header-cell *matHeaderCellDef> Response_soniat </mat-header-cell>
+              <mat-cell *matCellDef="let hist"> {{hist.response_soniat}}</mat-cell>
+              <mat-cell *matCellDef="let hist"> {{hist.response_soniat}}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <div class="container">
+            <div class="row">
+              <div class="col-5">
+              </div>
+              <div class="col">
+                <div *ngIf="hist.length==0 && !load">
+                  <mat-spinner></mat-spinner>
+                </div>
+              </div>
+              <div class="col-5">
+              </div>
+            </div>
+          </div>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <app-tablados></app-tablados>
+    </div>
+  </div>
+</div>

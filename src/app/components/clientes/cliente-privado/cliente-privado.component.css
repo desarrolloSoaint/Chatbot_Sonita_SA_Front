@@ -1,0 +1,24 @@
+.mover {
+    margin-top: 150px;
+}
+.toolbar-spacer {
+    flex : 2  1 auto;
+}
+
+.pointer{
+    cursor:pointer;
+}
+
+.toolbar{
+	color:white;
+	background-color: #004e82;
+    align-items: center;
+}
+
+.color{
+    background-color: #006595!important;
+  }
+
+.card2{
+    max-width: 400px;
+}
