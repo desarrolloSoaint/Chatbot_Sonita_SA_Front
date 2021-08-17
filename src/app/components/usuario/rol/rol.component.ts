@@ -77,7 +77,9 @@ export class RolComponent implements OnInit {
     this.rol1 = x;
     this.contactService.deleteRol(this.rol1.id).subscribe(
       response => {
+        this.load();
         if (response.mensaje == 'Rol eliminada Exitosamente') {
+          this.load();
         }
       }, (err) => {
         this.swalWarn();
@@ -179,6 +181,9 @@ export class RolComponent implements OnInit {
   }
 
   load() {
+    setTimeout(function() {
+      $("#contenido").fadeOut(6000);
+    }, 3000);
     this.authService.rol().subscribe(response => {
     this.rols = [];
     response.forEach((idUser:Rol) => {

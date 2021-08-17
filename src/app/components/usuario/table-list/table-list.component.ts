@@ -47,9 +47,9 @@ export class TableListComponent implements OnInit {
     this.userService.getUser().subscribe(response => {
       if(response.length === 0){
         this.swalAlert();
-        setTimeout(function() {
-          $("#contenido").fadeOut(3000);
-        }, 3000);
+        // setTimeout(function() {
+        //   $("#contenido").fadeOut(3000);
+        // }, 3000);
       }else{
         response.forEach((idUser:User) => {
           this.userList.push(idUser)
@@ -119,7 +119,9 @@ export class TableListComponent implements OnInit {
   deleteUser(x): void{
     this.user = x;
     console.log(this.user.id)
-    this.userService.delete(this.user.id).subscribe(response => console.log(response));
+    this.userService.delete(this.user.id).subscribe(response => {
+      console.log(response)
+      this.load();});
   }
 
   deleted(x){
